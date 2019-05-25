@@ -1,0 +1,50 @@
+.buttons
+{
+	height: 98px;
+	background-color: blue;
+
+}
+
+.buttons >.btn {
+	height: 98px;
+	width:100px;
+	background-color: red;
+	background-image: url('../image/icon.jpg');
+	background-repeat: no-repeat;
+	margin: 20px;
+	border-radius: 20px;
+	border:3px solid gray;
+	
+}
+.btn-fb{
+background-position-y:-98px;
+}
+
+.btn-tw{
+background-position: -101px -98px;
+}
+
+.btn-yt{
+background-position: -202px -98px;
+}
+
+.btn-ins{
+background-position: -300px -98px;
+}
+
+.btn-fb:hover{
+background-position-y:0px;
+}
+
+.btn-tw:hover{
+background-position: -99px 0px;
+}
+
+.btn-yt:hover{
+background-position: -202px -3px;
+}
+
+.btn-ins:hover{
+background-position: -300px -6px;
+}
+

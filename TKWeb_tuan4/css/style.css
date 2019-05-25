@@ -1,0 +1,40 @@
+.menu{
+	background-color: #ff7878;
+	height: 150px;
+	width: 100%;
+}
+
+.banner{
+	background-color: #efef62;
+	height: 150px;
+	width: 100%;
+}
+
+.content{
+	background-color: #5d9ddf;
+	height: 150px;
+}
+
+.footer{
+	background-color: #efef62;
+	height: 150px;
+	width: 100%;
+}
+
+.site-map{
+	background-color: #4b4b3c;
+	height: 125px;
+	width: 100%;
+}
+.copy-right{
+	background-color: #ff9800;
+	height: 125px;
+	width: 100%;
+
+}
+.footer  .site-map{
+	background-color: green;
+	height: 125px;
+	width: 100%;
+}
+

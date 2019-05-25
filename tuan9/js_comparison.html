@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Thiết kế web - Animation</title>
+		<style>
+			body{
+				font-family:monospace;					
+				white-space:pre;
+			}
+			table {
+				border-collapse: collapse;
+			}
+			table, th, td {
+				border: 1px solid black;
+			}
+			th, td {
+				padding:3px 5px;
+			}
+			th{
+				font-weight:900;
+			}
+			.false{
+				color:red;
+			}
+			.true{
+				color:blue;
+			}
+		</style>
+		<script>
+			function toText(x){
+				if('string'===typeof x){
+					return('"'+x+'"');
+				}
+				else if (Array.isArray(x)){
+					return('[]');
+				}
+				else if ('object'===typeof x && x!==null){
+					return('{}');
+				}
+				else {
+					return(''+x);
+				}
+			}			
+			function boolToText(x){
+				return '<span class="'+x+'">'+x+'</span>';
+			}
+			var str='';
+			var arr=[0,1,2,'0','1','2','',' ',false, 'false', true, 'true', null, undefined, NaN, Infinity, [], {}];
+			var arr2=[0,'0','',' ',false, null, undefined, NaN, Infinity, [],{}];
+			console.log(arr);
+			str+=('<table><thead><tr><th>var x = </th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<th>'+toText(arr[i])+'</th>');
+			}			
+			str+=('</tr></thead>');
+			str+=('<tbody>');
+			str+=('<tr><th>x == true</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]==true)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x === true</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]===true)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x != true</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]!=true)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x !== true</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]!==true)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x == false</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]==false)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x === false</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]===false)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x != false</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]!=false)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>x !== false</th>');
+			for(var i=0;i<arr.length; i++){
+				str+=('<td>'+boolToText(arr[i]!==false)+'</td>');
+			}
+			str+=('</tr>');
+			str+=('<tr><th>if(x)</th>');
+			for(var i=0;i<arr.length; i++){
+				if(arr[i]){str+=('<td><span class="true">true</span></td>');}
+				else{str+=('<td><span class="false">false</span></td>');}
+				
+			}
+			str+=('</tr>');
+			str+=('<tr><th>if(!x)</th>');
+			for(var i=0;i<arr.length; i++){
+				if(!arr[i]){str+=('<td><span class="true">true</span></td>');}
+				else{str+=('<td><span class="false">false</span></td>');}
+				
+			}
+			str+=('</tr>');
+			str+=('</tbody></table>');
+			
+			str+=('<br/>');
+			str+=('<table><thead><tr><th>==</th>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<th>'+toText(arr2[i])+'</th>');
+			}			
+			str+=('</tr></thead>');
+			str+=('<tbody>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<tr><th>'+toText(arr2[i])+'</th>');
+				for(var j=0;j<arr2.length; j++){
+					str+=('<td>'+boolToText(arr2[i]==arr2[j])+'</td>');
+				}
+			str+=('</tr>');
+			}
+			str+=('</tbody></table>');
+			
+			str+=('<br/>');
+			str+=('<table><thead><tr><th>===</th>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<th>'+toText(arr2[i])+'</th>');
+			}			
+			str+=('</tr></thead>');
+			str+=('<tbody>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<tr><th>'+toText(arr2[i])+'</th>');
+				for(var j=0;j<arr2.length; j++){
+					str+=('<td>'+boolToText(arr2[i]===arr2[j])+'</td>');
+				}
+			str+=('</tr>');
+			}
+			str+=('</tbody></table>');
+			
+			str+=('<br/>');
+			str+=('<table><thead><tr><th>!=</th>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<th>'+toText(arr2[i])+'</th>');
+			}			
+			str+=('</tr></thead>');
+			str+=('<tbody>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<tr><th>'+toText(arr2[i])+'</th>');
+				for(var j=0;j<arr2.length; j++){
+					str+=('<td>'+boolToText(arr2[i]!=arr2[j])+'</td>');
+				}
+			str+=('</tr>');
+			}
+			str+=('</tbody></table>');
+			
+			str+=('<br/>');
+			str+=('<table><thead><tr><th>!==</th>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<th>'+toText(arr2[i])+'</th>');
+			}			
+			str+=('</tr></thead>');
+			str+=('<tbody>');
+			for(var i=0;i<arr2.length; i++){
+				str+=('<tr><th>'+toText(arr2[i])+'</th>');
+				for(var j=0;j<arr2.length; j++){
+					str+=('<td>'+boolToText(arr2[i]!==arr2[j])+'</td>');
+				}
+			str+=('</tr>');
+			}
+			str+=('</tbody></table>');
+			document.write(str);
+		</script>
+	</head>		
+	<body>
+		
+	</body>
+</html>

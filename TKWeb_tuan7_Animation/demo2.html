@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Thiết kế web</title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sing:border-box;
+		}
+		#btn{
+			padding: 5px 20px;
+			font-size:50px;
+			color:white;
+			background-color:blue;
+			border-radius:15px;
+		}
+		#btn:hover{
+			animation:btnShake 200ms linear 10, btnColor 1000ms linear 2 alternate;
+		}		
+		@keyframes btnShake {
+			0% {transform: rotate(0deg);}
+			25% {transform: rotate(5deg);}
+			75% {transform: rotate(-5deg);}
+			100% {transform: rotate(0deg);}
+		}
+		@keyframes btnColor {
+			0% {background-color:blue;}
+			50% {background-color:red;}
+			100% {background-color:green;}
+		}		
+		.loading{
+		display:inline-block;
+			width:300px;
+			height:300px;
+		}
+		#chk:checked~.loading1{
+			background: url(img/load1.png) 0 0 no-repeat;
+			background-size:contain;
+			animation: spin 2s steps(12) infinite;
+		}
+		#chk:checked~.loading2{
+			background: url(img/load2.png) 0 0 no-repeat;
+			background-size:contain;			
+			animation: spin 2s linear infinite;
+		}
+		@keyframes spin{
+			from{transform:rotate(0deg);}
+			to{transform:rotate(360deg);}
+		}
+		
+		
+		.tuna {			
+			background: url(img/tuna_sprite.png) 0 0 no-repeat; 
+			height: 200px;
+			width: 400px;
+			position:absolute;
+			right:0;
+			top:0;
+		}
+		#chk:checked~.tuna{
+			animation: walk-cycle 1s steps(12) 2,
+						walk-to-run .75s steps(12) 2s 1,
+						run-cycle .75s steps(13) 2.75s infinite,
+						moving 2.75s linear forwards;
+		}
+		@keyframes moving {  
+			0% {right: 0; } 
+			100% {right: 50%; } 
+		}
+		@keyframes walk-cycle {  
+			0% {background-position: 0 0; } 
+			100% {background-position: 0 -2391px; } 
+		}
+		@keyframes walk-to-run {  
+			0% {background-position: -800px 0; } 
+			100% {background-position: -800px -2391px; } 
+		}
+		@keyframes run-cycle {  
+			0% {background-position: -1200px 0; } 
+			100% {background-position: -1200px -2591px; } 
+		}
+		#chk{
+			visibility:hidden;
+		}
+		
+	</style>
+	<body>		
+		<input type="checkbox" id="chk" />
+		<div class="tuna"></div>
+		<br/>		
+		<button id="btn"><label for="chk">Click me!</label></button>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="loading loading1"></div>
+		<div class="loading loading2"></div>
+		<br/>
+	</body>
+</html>

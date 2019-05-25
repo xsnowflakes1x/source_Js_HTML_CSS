@@ -1,0 +1,31 @@
+h1 { color :red; }
+#wrapper {
+		
+	background-color: rgb(76, 189, 248);
+}
+.HinhSP {
+	height: 50px;
+	weight:50px;
+}
+
+div.sp{
+
+	background-color:yellow ;
+}
+
+#DSSP{
+	background-color:lightgreen;
+	width:12%;
+}
+
+li >a {
+	color:red;
+	text-decoration: none;
+}
+
+
+li mark {
+	color:black;
+	background: orange;
+	
+}

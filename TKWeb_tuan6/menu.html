@@ -1,0 +1,194 @@
+<!Doctype html>
+<html>
+<head>
+<title>HTML CSS menu</title>
+<meta charset="UTF-8">
+<style>
+/* Định dạng font*/
+body {	
+	font-family: sans-serif;
+	font-size:22px;
+}
+
+/* Màu nền cho menu*/
+.main-menu {
+	background-color: #346c47;	
+}
+
+/* Định dạng chung cho menu tất cả các cấp*/
+.main-menu ul {
+	padding: 0;
+	margin: 0;
+	background-color: #44ad62;
+	display:inline-block;
+}
+
+.main-menu li {
+	display:inline-block;
+	position: relative;			/* Để đặt position absolute cho các menu dọc (menu con)*/
+}
+
+/* Đổi màu nền cho dòng đang hover*/
+.main-menu li:hover { 
+	background-color: #000; 
+}
+
+.main-menu a {
+	display:block;				/* Để có thể click chọn vào menu thay vì chỉ phần chữ*/
+	padding:0 10px;
+	color:#ffffff;
+	line-height: 2.5em;			/* Chiều cao của tất cả các menu item*/
+	text-decoration:none;
+}
+
+
+/* Fix khoảng cách giữa các menu item của menu cấp 1
+   Nếu muốn giữ lại khoảng cách này thì bỏ 2 selector sau */
+.main-menu > ul {
+	font-size:0;
+}
+.main-menu > ul > li {
+	font-size:22px;
+}
+
+/* Đường phân cách cho menu cấp 1
+   Nếu không cần thì bỏ 2 selector sau */
+.main-menu > ul > li {
+	border-left:1px solid #ffffff;
+}
+.main-menu > ul > li:first-child {
+	border-left:none;
+}
+
+/* Đường phân cách cho các menu dọc (menu con)
+   Nếu không cần thì bỏ 1 selector sau */
+.main-menu ul ul li {
+	border-top: 1px solid #ffffff;
+}
+
+/* Ẩn menu con (cấp >1) */
+.main-menu ul ul {
+	display: none;
+}
+
+/* Hiện menu con khi hover */
+.main-menu li:hover > ul {
+	display:inherit;
+	position: absolute;
+	z-index:10;
+}
+
+/*Định dạng menu dọc (menu con)*/
+.main-menu ul ul li {
+	width:250px;				/* a */
+	display:inherit;
+}
+
+/* Định dạng menu cấp >=2*/
+.main-menu ul ul li {
+	background-color: #ffffff10;
+}
+
+/* Định dạng menu cấp >=3 */
+.main-menu ul ul ul {
+	top:0;						/* Dịch lên cho bằng với item của menu cha*/
+	left:250px;					/* a *//* Dịch qua phải 1 khoảng bằng chiều rộng của menu cha*/
+}
+.main-menu ul ul ul li{
+	background-color: #ffffff20;
+}
+
+/* Định dạng menu cấp >=4 */
+.main-menu ul ul ul li{
+	background-color: #ffffff30;
+}
+
+/* Có thể thêm các cấp lớn hơn nếu cần*/
+
+	
+/* Ký hiệu mũi tên  */
+/* Mũi tên qua phải cho các menu cấp >1*/
+.main-menu li > a::after {
+	content: '\23F5';
+	display:block;
+	float:right;
+	height:100%;
+}
+/* Mũi tên xuống cho menu cấp 1*/
+.main-menu > ul > li > a::after {
+	content:  '\23F7';
+}
+
+/* Bỏ mũi tên nếu không có menu con */
+.main-menu li > a:only-child::after {
+	content: ''; 
+} 
+
+/*CSS media query*/
+@media (max-width:768px)
+{
+	.main-menu ul, .main-menu li, .main-menu ul ul li,
+	.main-menu ul ul ul li, .main-menu li:hover > ul {
+		display:block;
+		position:static;
+		width:100%;
+		border:none;
+	}
+}
+
+</style>
+</head>
+<body>
+	<nav class="main-menu">
+		<ul> <!-- Menu cấp 1 -->
+			<li><a href="#">Trang chủ</a></li>
+			<li><a href="#">Điện thoại</a> 
+				<ul> <!-- Menu cấp 2 -->
+					<li><a href="#">bPhone</a></li>
+					<li><a href="#">iPhone</a>
+						<ul> <!-- Menu cấp 3 -->
+							<li><a href="#">SE</a></li>
+							<li><a href="#">7</a></li>
+							<li><a href="#">7+</a></li>
+							<li><a href="#">8</a></li>
+							<li><a href="#">8+</a></li>
+							<li><a href="#">X</a>
+								<ul> <!-- Menu cấp 4 -->
+									<li><a href="#">64 GB</a></li>
+									<li><a href="#">256 GB</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">Samsung</a></li>
+					<li><a href="#">Sony</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Laptop</a>
+				<ul>
+					<li><a href="#">Asus</a></li>
+					<li><a href="#">Dell</a></li>
+					<li><a href="#">Macbook</a></li>
+					<li><a href="#">HP</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Giỏ hàng</a></li>
+			<li><a href="#">Thành viên</a>
+				<ul>
+					<li><a href="#">Đăng nhập</a></li>
+					<li><a href="#">Đăng ký</a></li>					
+					<!-- Xuống dòng trong 1 menu item -->
+					<li><a href="#">Chính sách (xuống hàng nè ahihi)</a>
+						<ul>
+							<li><a href="#">Giao hàng</a></li>
+							<li><a href="#">Đổi trả hàng</a></li>
+							<li><a href="#">Bảo hành</a></li>
+							<li><a href="#">Điều khoản sử dụng</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>
